@@ -1,14 +1,14 @@
-# Alpyne Worker
+# Alpyne Framework
 
-Este proyecto es un ejemplo de worker en Python siguiendo DDD y arquitectura
-hexagonal. Incluye reinicio automático con `watchgod`, adaptadores HTTP con
-FastAPI, soporte para Kafka y Redis y un contenedor de inyección de
-dependencias inspirado en `pynversify`.
+Este repositorio contiene un framework minimalista para crear workers en Python
+siguiendo DDD y arquitectura hexagonal. Incluye adaptadores HTTP con FastAPI,
+soporte para Kafka y Redis, contenedor de inyección de dependencias inspirado en
+`pynversify` y reinicio automático con `watchgod`.
 
-Para ejecutar el proyecto en modo de desarrollo:
+Para ejecutar el ejemplo de desarrollo:
 
 ```bash
-python -m src
+python -m alpyne
 ```
 
-Es necesario instalar las dependencias declaradas en `pyproject.toml`.
+Asegúrese de instalar las dependencias declaradas en `pyproject.toml`.

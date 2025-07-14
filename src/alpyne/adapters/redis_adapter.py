@@ -2,6 +2,8 @@ import aioredis
 
 
 class RedisAdapter:
+    """Redis adapter with simple connect/close hooks."""
+
     def __init__(self, url: str = "redis://localhost"):
         self.url = url
         self.redis = None

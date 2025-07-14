@@ -1,7 +1,7 @@
 from watchgod import run_process
 
 
-def run_with_reload():
+def run_with_reload() -> None:
     from .main import main
     run_process('src', lambda: main())
 

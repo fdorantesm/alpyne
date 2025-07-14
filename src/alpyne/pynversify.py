@@ -1,4 +1,6 @@
 class Container:
+    """Simplified inversion-of-control container inspired by pynversify."""
+
     def __init__(self):
         self._providers = {}
 

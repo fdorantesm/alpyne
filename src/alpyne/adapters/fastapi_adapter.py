@@ -4,13 +4,16 @@ from ..use_cases.greet import GreetingService
 
 
 class FastAPIAdapter:
-    def __init__(self, greeting_service: GreetingService):
-        self.greeting_service = greeting_service
+    """HTTP adapter exposing GreetingService via FastAPI."""
+
+    def __init__(self, service: GreetingService):
+        self.service = service
         self.app = FastAPI()
         self.app.get("/")(self.handle_greet)
 
     async def handle_greet(self):
-        return {"message": self.greeting_service.get_message()}
+        greeting = self.service.get_greeting()
+        return {"message": greeting.message}
 
     async def start(self, host: str = "0.0.0.0", port: int = 8000):
         config = uvicorn.Config(self.app, host=host, port=port)

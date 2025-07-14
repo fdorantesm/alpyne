@@ -2,6 +2,8 @@ from aiokafka import AIOKafkaProducer, AIOKafkaConsumer
 
 
 class KafkaAdapter:
+    """Kafka adapter providing start/stop lifecycle hooks."""
+
     def __init__(self, bootstrap_servers: str = "localhost:9092"):
         self.bootstrap_servers = bootstrap_servers
         self.producer = AIOKafkaProducer(bootstrap_servers=self.bootstrap_servers)
