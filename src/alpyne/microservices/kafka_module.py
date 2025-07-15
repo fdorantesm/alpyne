@@ -3,7 +3,7 @@ from ..core import Module
 from ..common.adapters.kafka_adapter import KafkaAdapter
 from ..core.config_service import ConfigService
 from ..common.config import KafkaConfig
-from ..domain.ports import KafkaBroker
+from ..common.ports import KafkaBroker
 
 
 @Module()

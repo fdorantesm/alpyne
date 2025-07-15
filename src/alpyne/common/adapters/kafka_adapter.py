@@ -1,5 +1,5 @@
 from aiokafka import AIOKafkaProducer, AIOKafkaConsumer
-from ...domain.ports import KafkaBroker
+from ..ports import KafkaBroker
 
 
 class KafkaAdapter(KafkaBroker):

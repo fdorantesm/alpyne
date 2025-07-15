@@ -3,7 +3,7 @@ from ..core import Module
 from ..common.adapters.redis_adapter import RedisAdapter
 from ..core.config_service import ConfigService
 from ..common.config import RedisConfig
-from ..domain.ports import RedisClient
+from ..common.ports import RedisClient
 
 
 @Module()

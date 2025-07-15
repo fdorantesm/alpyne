@@ -10,5 +10,4 @@ from src.alpyne import *  # noqa: F401,F403
 # expose subpackages so ``from alpyne.core`` works
 sys.modules[__name__ + ".core"] = _pkg.core
 sys.modules[__name__ + ".common"] = _pkg.common
-sys.modules[__name__ + ".domain"] = _pkg.domain
 

@@ -1,5 +1,5 @@
 import aioredis
-from ...domain.ports import RedisClient
+from ..ports import RedisClient
 
 
 class RedisAdapter(RedisClient):

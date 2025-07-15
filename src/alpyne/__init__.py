@@ -6,7 +6,7 @@ from .core import (
     PyNestApplication,
 )
 from .common import KafkaConfig, RedisConfig
-from .domain.ports import HttpServer, KafkaBroker, RedisClient
+from .common.ports import HttpServer, KafkaBroker, RedisClient
 
 __all__ = [
     "Container",

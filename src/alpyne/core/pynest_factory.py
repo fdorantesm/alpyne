@@ -2,7 +2,7 @@ from typing import Type, List
 
 from .container import Container
 from ..common.adapters.fastapi_adapter import FastAPIAdapter
-from ..domain.ports import HttpServer
+from ..common.ports import HttpServer
 
 
 class PyNestApplication:

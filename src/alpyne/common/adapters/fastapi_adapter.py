@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from typing import Sequence
-from ...domain.ports import HttpServer
+from ..ports import HttpServer
 
 
 class FastAPIAdapter(HttpServer):

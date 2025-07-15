@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
 
-
 class HttpServer(ABC):
     """Port for HTTP server adapters."""
 
@@ -37,3 +36,4 @@ class RedisClient(ABC):
     async def close(self) -> None:
         """Close the connection."""
         raise NotImplementedError
+
