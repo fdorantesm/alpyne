@@ -5,7 +5,7 @@ from ..common.adapters.fastapi_adapter import FastAPIAdapter
 from ..common.ports import HttpServer
 
 
-class PyNestApplication:
+class AlpyneApplication:
     """Wrapper returned by ``AlpyneFactory.create``."""
 
     def __init__(self, container: Container, server: HttpServer) -> None:
@@ -36,7 +36,7 @@ class AlpyneFactory:
         title: str | None = None,
         version: str | None = None,
         debug: bool | None = None,
-    ) -> PyNestApplication:
+    ) -> AlpyneApplication:
         container = Container()
         root_module().register(container)
         controllers = AlpyneFactory._collect_controllers(root_module, container)
@@ -48,4 +48,4 @@ class AlpyneFactory:
             debug=debug,
         )
         container.bind(HttpServer).to_factory(lambda s=server: s)
-        return PyNestApplication(container, server)
+        return AlpyneApplication(container, server)

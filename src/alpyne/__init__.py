@@ -1,7 +1,7 @@
 from .core import (
     Container,
     AlpyneFactory,
-    PyNestApplication,
+    AlpyneApplication,
 )
 from .common import HttpServer
 
@@ -9,5 +9,5 @@ __all__ = [
     "Container",
     "HttpServer",
     "AlpyneFactory",
-    "PyNestApplication",
+    "AlpyneApplication",
 ]

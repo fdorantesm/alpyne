@@ -6,7 +6,7 @@ powered by FastAPI, a lightweight dependency‑injection container and automatic
 reloads with `watchgod`. Alpyne mirrors the NestJS structure: the `core`
 package hosts the container and decorators while `common` contains reusable
 adapters.
-Modules declare controllers and providers just like in PyNest. Controllers expose routes while providers implement business logic. Modules group them so they can be easily imported into the container.
+Modules declare controllers and providers that are grouped into modules. Controllers expose routes while providers implement business logic. Modules group them so they can be easily imported into the container.
 The ``@Module`` decorator wires those controllers and providers automatically so each module only lists its classes. Use ``@Controller('/path')`` and ``@Injectable`` on your classes so the framework knows how to treat them. The controller decorator automatically creates a FastAPI ``APIRouter`` using the provided path. Endpoint methods are decorated with ``@Get`` or ``@Post`` to define routes. ``Inject`` can be used as a default value in a constructor parameter to specify the token to resolve. When a module is registered, dependencies are resolved from the built‑in container.
 
 
