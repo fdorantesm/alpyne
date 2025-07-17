@@ -92,23 +92,34 @@ def Injectable(cls: Type) -> Type:
     return cls
 
 
-def Module(*, imports: Iterable[Type] = None, providers: Iterable[Type] = None, controllers: Iterable[Type] = None):
-    imports = list(imports or [])
+def Module(
+    *,
+    modules: Iterable[Type] | None = None,
+    providers: Iterable[Type] | None = None,
+    controllers: Iterable[Type] | None = None,
+    exports: Iterable[Type] | None = None,
+):
+    """Decorator to define a module and its dependencies."""
+
+    modules = list(modules or [])
     providers = list(providers or [])
     controllers = list(controllers or [])
+    exports = list(exports or [])
 
     def decorator(cls: Type):
-        cls.imports = imports
+        cls.modules = modules
         cls.providers = providers
         cls.controllers = controllers
+        cls.exports = exports
         original_register = getattr(cls, "register", None)
 
         def register(self, container: Container) -> None:
-            for mod_cls in cls.imports:
+            for mod_cls in cls.modules:
                 mod_instance = mod_cls()
                 if hasattr(mod_instance, "register"):
                     mod_instance.register(container)
-            for dep in cls.providers + cls.controllers:
+            all_deps = list(dict.fromkeys(cls.providers + cls.controllers + cls.exports))
+            for dep in all_deps:
                 container.bind(dep).to_self()
             if original_register:
                 original_register(self, container)

@@ -24,8 +24,8 @@ class AlpyneFactory:
         controllers: List = []
         for ctrl in getattr(module_cls, "controllers", []):
             controllers.append(container.get(ctrl))
-        for imp in getattr(module_cls, "imports", []):
-            controllers.extend(AlpyneFactory._collect_controllers(imp, container))
+        for mod in getattr(module_cls, "modules", []):
+            controllers.extend(AlpyneFactory._collect_controllers(mod, container))
         return controllers
 
     @staticmethod
