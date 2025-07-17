@@ -6,7 +6,7 @@ from .module_decorator import (
     Get,
     Post,
 )
-from .pynest_factory import PyNestFactory, PyNestApplication
+from .alpyne_factory import AlpyneFactory, PyNestApplication
 
 __all__ = [
     "Container",
@@ -16,6 +16,6 @@ __all__ = [
     "Get",
     "Post",
     "Inject",
-    "PyNestFactory",
+    "AlpyneFactory",
     "PyNestApplication",
 ]

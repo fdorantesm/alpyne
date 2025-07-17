@@ -1,10 +1,10 @@
 import asyncio
-from alpyne.core import PyNestFactory
+from alpyne.core import AlpyneFactory
 from .app_module import AppModule
 
 
 async def run() -> None:
-    app = PyNestFactory.create(
+    app = AlpyneFactory.create(
         AppModule,
         description="Example greeting app",
         title="Greeting App",

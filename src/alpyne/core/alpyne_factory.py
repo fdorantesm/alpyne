@@ -6,7 +6,7 @@ from ..common.ports import HttpServer
 
 
 class PyNestApplication:
-    """Wrapper returned by ``PyNestFactory.create``."""
+    """Wrapper returned by ``AlpyneFactory.create``."""
 
     def __init__(self, container: Container, server: HttpServer) -> None:
         self._container = container
@@ -16,7 +16,7 @@ class PyNestApplication:
         return self._server
 
 
-class PyNestFactory:
+class AlpyneFactory:
     """Factory to bootstrap an application from a root module."""
 
     @staticmethod
@@ -25,7 +25,7 @@ class PyNestFactory:
         for ctrl in getattr(module_cls, "controllers", []):
             controllers.append(container.get(ctrl))
         for imp in getattr(module_cls, "imports", []):
-            controllers.extend(PyNestFactory._collect_controllers(imp, container))
+            controllers.extend(AlpyneFactory._collect_controllers(imp, container))
         return controllers
 
     @staticmethod
@@ -39,7 +39,7 @@ class PyNestFactory:
     ) -> PyNestApplication:
         container = Container()
         root_module().register(container)
-        controllers = PyNestFactory._collect_controllers(root_module, container)
+        controllers = AlpyneFactory._collect_controllers(root_module, container)
         server = FastAPIAdapter(
             controllers,
             description=description,

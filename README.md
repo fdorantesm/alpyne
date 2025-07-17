@@ -21,15 +21,15 @@ Ensure all dependencies listed in `pyproject.toml` are installed.
 
 ### Creating the server
 
-`PyNestFactory` bootstraps a FastAPI server from the root module. The factory
+`AlpyneFactory` bootstraps a FastAPI server from the root module. The factory
 creates the dependency container internally, collects controllers from your
 modules and returns an application object:
 
 ```python
-from alpyne.core import PyNestFactory
+from alpyne.core import AlpyneFactory
 from example.app_module import AppModule
 
-app = PyNestFactory.create(
+app = AlpyneFactory.create(
     AppModule,
     description="This is my Alpyne app",
     title="My App",
