@@ -13,3 +13,6 @@ class GreetingService:
     def get_greeting(self) -> Greeting:
         message = self._provider.get_message()
         return Greeting(message)
+
+    def set_greeting(self, message: str) -> None:
+        self._provider.set_message(message)

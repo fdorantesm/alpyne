@@ -43,6 +43,26 @@ def Post(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
     return Route(path, method="POST", **kwargs)
 
 
+def Put(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
+    return Route(path, method="PUT", **kwargs)
+
+
+def Delete(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
+    return Route(path, method="DELETE", **kwargs)
+
+
+def Patch(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
+    return Route(path, method="PATCH", **kwargs)
+
+
+def Options(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
+    return Route(path, method="OPTIONS", **kwargs)
+
+
+def Head(path: str, **kwargs: Any) -> Callable[[Callable], Callable]:
+    return Route(path, method="HEAD", **kwargs)
+
+
 def Controller(path: str):
     """Decorator to mark a class as a controller with a base path."""
 

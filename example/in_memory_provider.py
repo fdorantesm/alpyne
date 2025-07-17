@@ -11,3 +11,6 @@ class InMemoryMessageProvider(MessageProvider):
 
     def get_message(self) -> str:
         return self.message
+
+    def set_message(self, message: str) -> None:
+        self.message = message

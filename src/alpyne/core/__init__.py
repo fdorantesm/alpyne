@@ -5,6 +5,11 @@ from .module_decorator import (
     Injectable,
     Get,
     Post,
+    Put,
+    Delete,
+    Patch,
+    Options,
+    Head,
 )
 from .alpyne_factory import AlpyneFactory, AlpyneApplication
 
@@ -15,6 +20,11 @@ __all__ = [
     "Injectable",
     "Get",
     "Post",
+    "Put",
+    "Delete",
+    "Patch",
+    "Options",
+    "Head",
     "Inject",
     "AlpyneFactory",
     "AlpyneApplication",
