@@ -94,27 +94,27 @@ def Injectable(cls: Type) -> Type:
 
 def Module(
     *,
-    modules: Iterable[Type] | None = None,
+    imports: Iterable[Type] | None = None,
     providers: Iterable[Type] | None = None,
     controllers: Iterable[Type] | None = None,
     exports: Iterable[Type] | None = None,
 ):
     """Decorator to define a module and its dependencies."""
 
-    modules = list(modules or [])
+    imports = list(imports or [])
     providers = list(providers or [])
     controllers = list(controllers or [])
     exports = list(exports or [])
 
     def decorator(cls: Type):
-        cls.modules = modules
+        cls.imports = imports
         cls.providers = providers
         cls.controllers = controllers
         cls.exports = exports
         original_register = getattr(cls, "register", None)
 
         def register(self, container: Container) -> None:
-            for mod_cls in cls.modules:
+            for mod_cls in cls.imports:
                 mod_instance = mod_cls()
                 if hasattr(mod_instance, "register"):
                     mod_instance.register(container)
